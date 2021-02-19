@@ -1,0 +1,86 @@
+---
+title: "exercise_reproducible"
+author: "Leonie Thomas"
+date: "2/19/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(openintro)
+library(broom)
+```
+
+
+```{r}
+tcga <- read.delim("/home/lthomas/Documents/Studium/Master/Seminare/Bioinfo_Seminare/R_course/Rcourse/inst/extdata/luad_tcga_pan_can_atlas_2018_clinical_data.tsv") 
+tcga <- tcga[,apply(tcga,2,function(x){ !(sum(is.na(x)) == length(x))})] %>% 
+            mutate(days_since_birth = Birth.from.Initial.Pathologic.Diagnosis.Date/356.25)
+
+table(select(tcga,Diagnosis.Age))
+table(select(tcga, Sex))
+table(select(tcga, Race.Category))
+table(tcga$American.Joint.Committee.on.Cancer.Tumor.Stage.Code)
+```
+
+
+
+## Chi-squared test
+
+To look at the association between two categorical variables we can perform a chi squared test Study the relationshipo between sex and satisfaction.cat using a  contingency table and a bar plot.
+
+
+```{r}
+
+tcga %>% filter(!is.na(Sex))  %>% filter(!is.na(American.Joint.Committee.on.Cancer.Tumor.Stage.Code)) %>% ggplot(aes(Sex,fill=American.Joint.Committee.on.Cancer.Tumor.Stage.Code)) + geom_bar()
+
+t <- tcga %>% select(Sex,American.Joint.Committee.on.Cancer.Tumor.Stage.Code) %>% table()
+t
+```
+
+
+Use `prop.table` and  `geom_bar(stat="identity")` to report the relative frequencies of satisfaction between the sexes.
+
+```{r}
+prop.table(t, margin =1)
+
+prop.table(t, margin =1) %>% as.data.frame() %>% ggplot(aes(x=Sex,y=Freq,fill=American.Joint.Committee.on.Cancer.Tumor.Stage.Code)) + geom_bar(stat="identity")
+
+```
+
+
+Test this relationship using the `chi.test` command on the contingency table.
+
+```{r}
+c<-chisq.test(t)
+c
+```
+
+
+
+
+### Linear Regression
+
+```{r}
+
+tcga$Sex <- as.factor(tcga$Sex)
+tcga$American.Joint.Committee.on.Cancer.Tumor.Stage.Code <- as.factor(tcga$American.Joint.Committee.on.Cancer.Tumor.Stage.Code) 
+
+m1 <- lm(American.Joint.Committee.on.Cancer.Tumor.Stage.Code ~ Sex , data = tcga %>% filter(!is.na(Sex))  %>% filter(!is.na(American.Joint.Committee.on.Cancer.Tumor.Stage.Code)))
+m1
+tidy(m1)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
