@@ -1,7 +1,7 @@
-name: "try_workflowr"
+name: try_workflowr
 output_dir: ../docs
 navbar:
-  title: "try_workflowr"
+  title: try_workflowr
   left:
   - text: Home
     href: index.html
@@ -9,6 +9,10 @@ navbar:
     href: about.html
   - text: License
     href: license.html
+  right:
+  - icon: fa-github
+    text: Source code
+    href: https://github.com/leoniethomas/Rcourse
 output:
   workflowr::wflow_html:
     toc: yes
