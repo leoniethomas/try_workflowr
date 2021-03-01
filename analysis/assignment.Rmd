@@ -18,6 +18,8 @@ library(corrplot)
 
 __hello__
 
+hajdkafkdaök
+
 ## Based on the exercises from Rajbir: [here](https://github.com/CompEpigen/BasicR/blob/master/markdown/Day3_3_MulitivariableRegression_Exercise.Rmd)
 
 1. Fit a new model that uses  `pf_expression_control` to predict `hf_score`, or the total human freedom score. Using the estimates from the R output, write the equation of the regression line. What does the slope tell us in the context of the relationship between human freedom and the amount of political pressure on media content?
