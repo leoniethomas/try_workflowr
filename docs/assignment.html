@@ -9,7 +9,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Leonie Thomas" />
 
 
 <title>assignment</title>
@@ -29,9 +28,6 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -231,69 +227,6 @@ $(document).ready(function () {
 
 
 
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-@media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
-}
-}
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
-</style>
-
-
 
 </head>
 
@@ -301,16 +234,6 @@ div.tocify {
 
 
 <div class="container-fluid main-container">
-
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row">
-<div class="col-sm-12 col-md-4 col-lg-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-sm-12 col-md-8 col-lg-9">
 
 
 
@@ -355,15 +278,13 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">assignment</h1>
-<h4 class="author">Leonie Thomas</h4>
-<h4 class="date">23th of Feburary</h4>
 
 </div>
 
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -372,7 +293,7 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -384,7 +305,7 @@ div.tocify {
 <strong>Last updated:</strong> 2021-03-01
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong> <code>try_workflowr/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -400,12 +321,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown is untracked by Git. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
 </div>
 </div>
 </div>
@@ -472,24 +393,21 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomleoniethomastryworkflowrtree94d8a36c6d7d13898289c6cb141fd19555b6d217targetblank94d8a36a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/leoniethomas/try_workflowr/tree/94d8a36c6d7d13898289c6cb141fd19555b6d217" target="_blank">94d8a36</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomleoniethomastryworkflowrtreec64fe858cd9be5fd1ffc395b08e5a64463a55556targetblankc64fe85a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/leoniethomas/try_workflowr/tree/c64fe858cd9be5fd1ffc395b08e5a64463a55556" target="_blank">c64fe85</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomleoniethomastryworkflowrtree94d8a36c6d7d13898289c6cb141fd19555b6d217targetblank94d8a36a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomleoniethomastryworkflowrtreec64fe858cd9be5fd1ffc395b08e5a64463a55556targetblankc64fe85a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/leoniethomas/try_workflowr/tree/94d8a36c6d7d13898289c6cb141fd19555b6d217" target="_blank">94d8a36</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/leoniethomas/try_workflowr/tree/c64fe858cd9be5fd1ffc395b08e5a64463a55556" target="_blank">c64fe85</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 </p>
 <pre><code>
-Untracked files:
-    Untracked:  analysis/assignment.Rmd
-
 Unstaged changes:
     Modified:   .gitignore
 
@@ -504,9 +422,86 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
+
 <p>
-There are no past versions. Publish this analysis with <code>wflow_publish()</code> to start tracking its development.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/assignment.Rmd</code>) and HTML (<code>docs/assignment.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/leoniethomas/try_workflowr/blob/c64fe858cd9be5fd1ffc395b08e5a64463a55556/analysis/assignment.Rmd" target="_blank">c64fe85</a>
+</td>
+<td>
+leoniethomas
+</td>
+<td>
+2021-03-01
+</td>
+<td>
+hello
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/leoniethomas/try_workflowr/blob/f02a5407a5a7b0a45329d78b88fd27ab72147a96/analysis/assignment.Rmd" target="_blank">f02a540</a>
+</td>
+<td>
+leoniethomas
+</td>
+<td>
+2021-03-01
+</td>
+<td>
+hello
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/leoniethomas/try_workflowr/f02a5407a5a7b0a45329d78b88fd27ab72147a96/docs/assignment.html" target="_blank">f02a540</a>
+</td>
+<td>
+leoniethomas
+</td>
+<td>
+2021-03-01
+</td>
+<td>
+hello
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 <hr>
 </div>
 </div>
@@ -546,6 +541,43 @@ tidy(m1)</code></pre>
   geom_smooth(method = &quot;lm&quot;, se = FALSE)</code></pre>
 <pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <p><img src="figure/assignment.Rmd/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-2-1">
+Past versions of unnamed-chunk-2-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-2-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/leoniethomas/try_workflowr/blob/f02a5407a5a7b0a45329d78b88fd27ab72147a96/docs/figure/assignment.Rmd/unnamed-chunk-2-1.png" target="_blank">f02a540</a>
+</td>
+<td>
+leoniethomas
+</td>
+<td>
+2021-03-01
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>m1_aug &lt;- augment(m1)
 ggplot(data = m1_aug, aes(x = .fitted, y = .resid)) +
   geom_point() +
@@ -553,16 +585,127 @@ ggplot(data = m1_aug, aes(x = .fitted, y = .resid)) +
   xlab(&quot;Fitted values&quot;) +
   ylab(&quot;Residuals&quot;)</code></pre>
 <p><img src="figure/assignment.Rmd/unnamed-chunk-2-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-2-2">
+Past versions of unnamed-chunk-2-2.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-2-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/leoniethomas/try_workflowr/blob/f02a5407a5a7b0a45329d78b88fd27ab72147a96/docs/figure/assignment.Rmd/unnamed-chunk-2-2.png" target="_blank">f02a540</a>
+</td>
+<td>
+leoniethomas
+</td>
+<td>
+2021-03-01
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>ggplot(data = m1_aug, aes(x = .resid)) +
   geom_histogram(binwidth = 0.25) +
   xlab(&quot;Residuals&quot;)</code></pre>
 <p><img src="figure/assignment.Rmd/unnamed-chunk-2-3.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-2-3">
+Past versions of unnamed-chunk-2-3.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-2-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/leoniethomas/try_workflowr/blob/f02a5407a5a7b0a45329d78b88fd27ab72147a96/docs/figure/assignment.Rmd/unnamed-chunk-2-3.png" target="_blank">f02a540</a>
+</td>
+<td>
+leoniethomas
+</td>
+<td>
+2021-03-01
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>ggplot(data = m1_aug, aes(x = .fitted, y = .std.resid)) +
   geom_point() +
   geom_hline(yintercept = 0, linetype = &quot;dashed&quot;, color = &quot;red&quot;) +
   xlab(&quot;Fitted values&quot;) +
   ylab(&quot;SD Residuals&quot;)</code></pre>
 <p><img src="figure/assignment.Rmd/unnamed-chunk-2-4.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-2-4">
+Past versions of unnamed-chunk-2-4.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-2-4" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/leoniethomas/try_workflowr/blob/f02a5407a5a7b0a45329d78b88fd27ab72147a96/docs/figure/assignment.Rmd/unnamed-chunk-2-4.png" target="_blank">f02a540</a>
+</td>
+<td>
+leoniethomas
+</td>
+<td>
+2021-03-01
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p><span class="math display">\[ hf\_score =  5.053396 + 0.368432 * pf\_expression\_control\]</span></p>
 <ol start="2" style="list-style-type: decimal">
 <li>If someone saw the least squares regression line and not the actual data, how would they predict a country’s <code>hf_score</code> for one with a 3 rating for <code>pf_expression_control</code>? Is this an overestimate or an underestimate, and by how much? In other words, what is the residual for this prediction?</li>
@@ -606,6 +749,43 @@ tidy(m2)</code></pre>
   geom_smooth(method = &quot;lm&quot;, se = FALSE)</code></pre>
 <pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <p><img src="figure/assignment.Rmd/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-6-1">
+Past versions of unnamed-chunk-6-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-6-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/leoniethomas/try_workflowr/blob/f02a5407a5a7b0a45329d78b88fd27ab72147a96/docs/figure/assignment.Rmd/unnamed-chunk-6-1.png" target="_blank">f02a540</a>
+</td>
+<td>
+leoniethomas
+</td>
+<td>
+2021-03-01
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>m2_aug &lt;- augment(m2)
 ggplot(data = m2_aug, aes(x = .fitted, y = .resid)) +
   geom_point() +
@@ -613,16 +793,127 @@ ggplot(data = m2_aug, aes(x = .fitted, y = .resid)) +
   xlab(&quot;Fitted values&quot;) +
   ylab(&quot;Residuals&quot;)</code></pre>
 <p><img src="figure/assignment.Rmd/unnamed-chunk-6-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-6-2">
+Past versions of unnamed-chunk-6-2.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-6-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/leoniethomas/try_workflowr/blob/f02a5407a5a7b0a45329d78b88fd27ab72147a96/docs/figure/assignment.Rmd/unnamed-chunk-6-2.png" target="_blank">f02a540</a>
+</td>
+<td>
+leoniethomas
+</td>
+<td>
+2021-03-01
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>ggplot(data = m2_aug, aes(x = .resid)) +
   geom_histogram(binwidth = 0.25) +
   xlab(&quot;Residuals&quot;)</code></pre>
 <p><img src="figure/assignment.Rmd/unnamed-chunk-6-3.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-6-3">
+Past versions of unnamed-chunk-6-3.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-6-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/leoniethomas/try_workflowr/blob/f02a5407a5a7b0a45329d78b88fd27ab72147a96/docs/figure/assignment.Rmd/unnamed-chunk-6-3.png" target="_blank">f02a540</a>
+</td>
+<td>
+leoniethomas
+</td>
+<td>
+2021-03-01
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>ggplot(data = m2_aug, aes(x = .fitted, y = .std.resid)) +
   geom_point() +
   geom_hline(yintercept = 0, linetype = &quot;dashed&quot;, color = &quot;red&quot;) +
   xlab(&quot;Fitted values&quot;) +
   ylab(&quot;SD Residuals&quot;)</code></pre>
 <p><img src="figure/assignment.Rmd/unnamed-chunk-6-4.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-6-4">
+Past versions of unnamed-chunk-6-4.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-6-4" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/leoniethomas/try_workflowr/blob/f02a5407a5a7b0a45329d78b88fd27ab72147a96/docs/figure/assignment.Rmd/unnamed-chunk-6-4.png" target="_blank">f02a540</a>
+</td>
+<td>
+leoniethomas
+</td>
+<td>
+2021-03-01
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <ol start="5" style="list-style-type: decimal">
 <li>Pick another pair of variables of interest and visualise the relationship between them. Do you find the relationship surprising or is it what you expected. Discuss why you were interested in these variables and why you were/were not surprised by the relationship you observed.</li>
 </ol>
@@ -685,6 +976,43 @@ apply(cor_hfi_2016, 2, function(x){sum(x &gt; 0.7)-1 != 0})</code></pre>
 
 corrplot(cor_hfi_2016)</code></pre>
 <p><img src="figure/assignment.Rmd/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-7-1">
+Past versions of unnamed-chunk-7-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-7-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/leoniethomas/try_workflowr/blob/f02a5407a5a7b0a45329d78b88fd27ab72147a96/docs/figure/assignment.Rmd/unnamed-chunk-7-1.png" target="_blank">f02a540</a>
+</td>
+<td>
+leoniethomas
+</td>
+<td>
+2021-03-01
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <ol start="7" style="list-style-type: decimal">
 <li>Use the hfi dataset from the <code>openintro</code> package</li>
 </ol>
@@ -709,6 +1037,43 @@ corrplot(cor_hfi_2016)</code></pre>
   geom_smooth(method = &quot;lm&quot;, se = FALSE)</code></pre>
 <pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <p><img src="figure/assignment.Rmd/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-9-1">
+Past versions of unnamed-chunk-9-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-9-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/leoniethomas/try_workflowr/blob/f02a5407a5a7b0a45329d78b88fd27ab72147a96/docs/figure/assignment.Rmd/unnamed-chunk-9-1.png" target="_blank">f02a540</a>
+</td>
+<td>
+leoniethomas
+</td>
+<td>
+2021-03-01
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>m1_aug &lt;- augment(m1)
 ggplot(data = m1_aug, aes(x = .fitted, y = .resid)) +
   geom_point() +
@@ -716,16 +1081,127 @@ ggplot(data = m1_aug, aes(x = .fitted, y = .resid)) +
   xlab(&quot;Fitted values&quot;) +
   ylab(&quot;Residuals&quot;)</code></pre>
 <p><img src="figure/assignment.Rmd/unnamed-chunk-9-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-9-2">
+Past versions of unnamed-chunk-9-2.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-9-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/leoniethomas/try_workflowr/blob/f02a5407a5a7b0a45329d78b88fd27ab72147a96/docs/figure/assignment.Rmd/unnamed-chunk-9-2.png" target="_blank">f02a540</a>
+</td>
+<td>
+leoniethomas
+</td>
+<td>
+2021-03-01
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>ggplot(data = m1_aug, aes(x = .resid)) +
   geom_histogram(binwidth = 0.25) +
   xlab(&quot;Residuals&quot;)</code></pre>
 <p><img src="figure/assignment.Rmd/unnamed-chunk-9-3.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-9-3">
+Past versions of unnamed-chunk-9-3.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-9-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/leoniethomas/try_workflowr/blob/f02a5407a5a7b0a45329d78b88fd27ab72147a96/docs/figure/assignment.Rmd/unnamed-chunk-9-3.png" target="_blank">f02a540</a>
+</td>
+<td>
+leoniethomas
+</td>
+<td>
+2021-03-01
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>ggplot(data = m1_aug, aes(x = .fitted, y = .std.resid)) +
   geom_point() +
   geom_hline(yintercept = 0, linetype = &quot;dashed&quot;, color = &quot;red&quot;) +
   xlab(&quot;Fitted values&quot;) +
   ylab(&quot;SD Residuals&quot;)</code></pre>
 <p><img src="figure/assignment.Rmd/unnamed-chunk-9-4.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-9-4">
+Past versions of unnamed-chunk-9-4.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-9-4" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/leoniethomas/try_workflowr/blob/f02a5407a5a7b0a45329d78b88fd27ab72147a96/docs/figure/assignment.Rmd/unnamed-chunk-9-4.png" target="_blank">f02a540</a>
+</td>
+<td>
+leoniethomas
+</td>
+<td>
+2021-03-01
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <ol start="9" style="list-style-type: decimal">
 <li>Again add region to the model from Q4. Compare the slope and <span class="math inline">\(R^2\)</span> with the model from Q4.</li>
 </ol>
@@ -770,6 +1246,43 @@ tidy(m3)</code></pre>
   geom_smooth(method = &quot;lm&quot;, se = FALSE)</code></pre>
 <pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <p><img src="figure/assignment.Rmd/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-11-1">
+Past versions of unnamed-chunk-11-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-11-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/leoniethomas/try_workflowr/blob/f02a5407a5a7b0a45329d78b88fd27ab72147a96/docs/figure/assignment.Rmd/unnamed-chunk-11-1.png" target="_blank">f02a540</a>
+</td>
+<td>
+leoniethomas
+</td>
+<td>
+2021-03-01
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>m3_aug &lt;- augment(m3)
 ggplot(data = m3_aug, aes(x = .fitted, y = .resid)) +
   geom_point() +
@@ -777,16 +1290,127 @@ ggplot(data = m3_aug, aes(x = .fitted, y = .resid)) +
   xlab(&quot;Fitted values&quot;) +
   ylab(&quot;Residuals&quot;)</code></pre>
 <p><img src="figure/assignment.Rmd/unnamed-chunk-11-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-11-2">
+Past versions of unnamed-chunk-11-2.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-11-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/leoniethomas/try_workflowr/blob/f02a5407a5a7b0a45329d78b88fd27ab72147a96/docs/figure/assignment.Rmd/unnamed-chunk-11-2.png" target="_blank">f02a540</a>
+</td>
+<td>
+leoniethomas
+</td>
+<td>
+2021-03-01
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>ggplot(data = m3_aug, aes(x = .resid)) +
   geom_histogram(binwidth = 0.25) +
   xlab(&quot;Residuals&quot;)</code></pre>
 <p><img src="figure/assignment.Rmd/unnamed-chunk-11-3.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-11-3">
+Past versions of unnamed-chunk-11-3.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-11-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/leoniethomas/try_workflowr/blob/f02a5407a5a7b0a45329d78b88fd27ab72147a96/docs/figure/assignment.Rmd/unnamed-chunk-11-3.png" target="_blank">f02a540</a>
+</td>
+<td>
+leoniethomas
+</td>
+<td>
+2021-03-01
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>ggplot(data = m3_aug, aes(x = .fitted, y = .std.resid)) +
   geom_point() +
   geom_hline(yintercept = 0, linetype = &quot;dashed&quot;, color = &quot;red&quot;) +
   xlab(&quot;Fitted values&quot;) +
   ylab(&quot;SD Residuals&quot;)</code></pre>
 <p><img src="figure/assignment.Rmd/unnamed-chunk-11-4.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-11-4">
+Past versions of unnamed-chunk-11-4.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-11-4" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/leoniethomas/try_workflowr/blob/f02a5407a5a7b0a45329d78b88fd27ab72147a96/docs/figure/assignment.Rmd/unnamed-chunk-11-4.png" target="_blank">f02a540</a>
+</td>
+<td>
+leoniethomas
+</td>
+<td>
+2021-03-01
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <ol start="11" style="list-style-type: decimal">
 <li>Use a linear regression model (and scatter plot) with <code>ef_money</code> as exposure and <code>pf_expression_control</code> as outcome, to study whether <code>ef_money</code> has an association with <code>pf_expression_control</code> as well. This might validate our finding that <code>ef_money</code> is a confounder between <code>pf_expression_control</code> as exposure and <code>hf_score</code> as outcome from Q6.</li>
 </ol>
@@ -813,6 +1437,43 @@ tidy(m4)</code></pre>
   geom_smooth(method = &quot;lm&quot;, se = FALSE)</code></pre>
 <pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <p><img src="figure/assignment.Rmd/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-12-1">
+Past versions of unnamed-chunk-12-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-12-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/leoniethomas/try_workflowr/blob/f02a5407a5a7b0a45329d78b88fd27ab72147a96/docs/figure/assignment.Rmd/unnamed-chunk-12-1.png" target="_blank">f02a540</a>
+</td>
+<td>
+leoniethomas
+</td>
+<td>
+2021-03-01
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>m4_aug &lt;- augment(m4)
 ggplot(data = m4_aug, aes(x = .fitted, y = .resid)) +
   geom_point() +
@@ -820,16 +1481,127 @@ ggplot(data = m4_aug, aes(x = .fitted, y = .resid)) +
   xlab(&quot;Fitted values&quot;) +
   ylab(&quot;Residuals&quot;)</code></pre>
 <p><img src="figure/assignment.Rmd/unnamed-chunk-12-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-12-2">
+Past versions of unnamed-chunk-12-2.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-12-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/leoniethomas/try_workflowr/blob/f02a5407a5a7b0a45329d78b88fd27ab72147a96/docs/figure/assignment.Rmd/unnamed-chunk-12-2.png" target="_blank">f02a540</a>
+</td>
+<td>
+leoniethomas
+</td>
+<td>
+2021-03-01
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>ggplot(data = m4_aug, aes(x = .resid)) +
   geom_histogram(binwidth = 0.25) +
   xlab(&quot;Residuals&quot;)</code></pre>
 <p><img src="figure/assignment.Rmd/unnamed-chunk-12-3.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-12-3">
+Past versions of unnamed-chunk-12-3.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-12-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/leoniethomas/try_workflowr/blob/f02a5407a5a7b0a45329d78b88fd27ab72147a96/docs/figure/assignment.Rmd/unnamed-chunk-12-3.png" target="_blank">f02a540</a>
+</td>
+<td>
+leoniethomas
+</td>
+<td>
+2021-03-01
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>ggplot(data = m4_aug, aes(x = .fitted, y = .std.resid)) +
   geom_point() +
   geom_hline(yintercept = 0, linetype = &quot;dashed&quot;, color = &quot;red&quot;) +
   xlab(&quot;Fitted values&quot;) +
   ylab(&quot;SD Residuals&quot;)</code></pre>
 <p><img src="figure/assignment.Rmd/unnamed-chunk-12-4.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-12-4">
+Past versions of unnamed-chunk-12-4.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-12-4" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/leoniethomas/try_workflowr/blob/f02a5407a5a7b0a45329d78b88fd27ab72147a96/docs/figure/assignment.Rmd/unnamed-chunk-12-4.png" target="_blank">f02a540</a>
+</td>
+<td>
+leoniethomas
+</td>
+<td>
+2021-03-01
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p><img src="https://github.com/allisonhorst/stats-illustrations/blob/master/rstats-artwork/code_hero.jpg?raw=true" width="70%" style="display: block; margin: auto;" /></p>
 <br>
 <p>
@@ -870,18 +1642,18 @@ loaded via a namespace (and not attached):
  [5] rprojroot_2.0.2   digest_0.6.27     utf8_1.1.4        R6_2.5.0         
  [9] cellranger_1.1.0  backports_1.2.1   reprex_1.0.0      evaluate_0.14    
 [13] highr_0.8         httr_1.4.2        pillar_1.4.7      rlang_0.4.10     
-[17] readxl_1.3.1      rstudioapi_0.13   Matrix_1.3-2      rmarkdown_2.7    
-[21] labeling_0.4.2    splines_4.0.4     munsell_0.5.0     compiler_4.0.4   
-[25] httpuv_1.5.5      modelr_0.1.8      xfun_0.21         pkgconfig_2.0.3  
-[29] mgcv_1.8-33       htmltools_0.5.1.1 tidyselect_1.1.0  workflowr_1.6.2  
-[33] fansi_0.4.2       crayon_1.4.1      dbplyr_2.1.0      withr_2.4.1      
-[37] later_1.1.0.1     grid_4.0.4        nlme_3.1-152      jsonlite_1.7.2   
-[41] gtable_0.3.0      lifecycle_1.0.0   DBI_1.1.1         git2r_0.28.0     
-[45] magrittr_2.0.1    scales_1.1.1      cli_2.3.0         stringi_1.5.3    
-[49] farver_2.0.3      fs_1.5.0          promises_1.2.0.1  xml2_1.3.2       
-[53] ellipsis_0.3.1    generics_0.1.0    vctrs_0.3.6       tools_4.0.4      
-[57] glue_1.4.2        hms_1.0.0         yaml_2.2.1        colorspace_2.0-0 
-[61] rvest_0.3.6       knitr_1.31        haven_2.3.1      </code></pre>
+[17] readxl_1.3.1      rstudioapi_0.13   whisker_0.4       Matrix_1.3-2     
+[21] rmarkdown_2.7     labeling_0.4.2    splines_4.0.4     munsell_0.5.0    
+[25] compiler_4.0.4    httpuv_1.5.5      modelr_0.1.8      xfun_0.21        
+[29] pkgconfig_2.0.3   mgcv_1.8-33       htmltools_0.5.1.1 tidyselect_1.1.0 
+[33] workflowr_1.6.2   fansi_0.4.2       crayon_1.4.1      dbplyr_2.1.0     
+[37] withr_2.4.1       later_1.1.0.1     grid_4.0.4        nlme_3.1-152     
+[41] jsonlite_1.7.2    gtable_0.3.0      lifecycle_1.0.0   DBI_1.1.1        
+[45] git2r_0.28.0      magrittr_2.0.1    scales_1.1.1      cli_2.3.0        
+[49] stringi_1.5.3     farver_2.0.3      fs_1.5.0          promises_1.2.0.1 
+[53] xml2_1.3.2        ellipsis_0.3.1    generics_0.1.0    vctrs_0.3.6      
+[57] tools_4.0.4       glue_1.4.2        hms_1.0.0         yaml_2.2.1       
+[61] colorspace_2.0-0  rvest_0.3.6       knitr_1.31        haven_2.3.1      </code></pre>
 </div>
 </div>
 
@@ -899,8 +1671,6 @@ footer is added to webpages before the MathJax javascript. -->
 </script>
 
 
-</div>
-</div>
 
 </div>
 
@@ -933,32 +1703,6 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
