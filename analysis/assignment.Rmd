@@ -1,0 +1,270 @@
+---
+title: "assignment"
+author: "Leonie Thomas"
+date: "23th of Feburary"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(tidyverse)
+library(openintro)
+library(broom)
+library(corrplot)
+```
+
+
+## Based on the exercises from Rajbir: [here](https://github.com/CompEpigen/BasicR/blob/master/markdown/Day3_3_MulitivariableRegression_Exercise.Rmd)
+
+1. Fit a new model that uses  `pf_expression_control` to predict `hf_score`, or the total human freedom score. Using the estimates from the R output, write the equation of the regression line. What does the slope tell us in the context of the relationship between human freedom and the amount of political pressure on media content?
+
+__Preparing the dataset:__ 
+
+Selecting just one year, since the values from the same country but different years are not independent from each other. 
+
+```{r}
+hfi_2016 <- hfi %>% 
+  filter(year == 2016)
+```
+
+__Linear Regression:__
+
+$$ hf\_score = a + b * pf\_expression\_control$$
+
+```{r}
+hfi_2016 %>%
+  summarise(cor(pf_expression_control, hf_score))
+m1 <- lm(hf_score ~ pf_expression_control, data = hfi_2016)
+tidy(m1)
+glance(m1)
+ggplot(data = hfi_2016, aes(x = pf_expression_control, y = hf_score)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE)
+m1_aug <- augment(m1)
+ggplot(data = m1_aug, aes(x = .fitted, y = .resid)) +
+  geom_point() +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
+  xlab("Fitted values") +
+  ylab("Residuals")
+
+ggplot(data = m1_aug, aes(x = .resid)) +
+  geom_histogram(binwidth = 0.25) +
+  xlab("Residuals")
+
+ggplot(data = m1_aug, aes(x = .fitted, y = .std.resid)) +
+  geom_point() +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
+  xlab("Fitted values") +
+  ylab("SD Residuals")
+```
+
+$$ hf\_score =  5.053396 + 0.368432 * pf\_expression\_control$$
+
+
+
+2. If someone saw the least squares regression line and not the actual data, how would they predict a country's `hf_score` for one with a 3 rating for `pf_expression_control`? Is this an overestimate or an underestimate, and by how much? In other words, what is the residual for this prediction?
+
+```{r}
+tidy(m1) %>% filter(term == "(Intercept)") %>% pull(estimate) + tidy(m1) %>% filter(term == "pf_expression_control") %>% pull(estimate) * 3
+m1_aug %>% filter(pf_expression_control == 3) %>% pull(.resid)
+
+```
+
+3. How does this relationship compare to the relationship between `pf_score` and `pf_expression_control`?
+    Use the $R^2$ values from the two model summaries to compare.
+    Does your `pf_expression_control` seem to predict `hf_score` better?
+    Why or why not?
+    
+```{r}
+hfi_2016 %>%
+  summarise(cor(pf_expression_control, pf_score))
+m2 <- lm(pf_score ~ pf_expression_control, data = hfi_2016)
+tidy(m2)
+glance(m2)
+
+```
+    
+```{r}
+glance(m1) %>% pull(r.squared)
+glance(m2) %>% pull(r.squared)
+
+```
+Since the `r.squared` value is lower for `pf_expression_control` ~ `hf_score`, `pf_expression_control` seems to be a better predictor for  `hf_score` than vor `pf_score`.
+
+
+4. Check the model diagnostics using appropriate visualisations and evaluate if the model conditions have been met.
+
+```{r}
+ggplot(data = hfi_2016, aes(x = pf_expression_control, y = pf_score)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE)
+m2_aug <- augment(m2)
+ggplot(data = m2_aug, aes(x = .fitted, y = .resid)) +
+  geom_point() +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
+  xlab("Fitted values") +
+  ylab("Residuals")
+
+ggplot(data = m2_aug, aes(x = .resid)) +
+  geom_histogram(binwidth = 0.25) +
+  xlab("Residuals")
+
+ggplot(data = m2_aug, aes(x = .fitted, y = .std.resid)) +
+  geom_point() +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
+  xlab("Fitted values") +
+  ylab("SD Residuals")
+
+```
+
+
+5. Pick another pair of variables of interest and visualise the relationship between them.
+    Do you find the relationship surprising or is it what you expected.
+    Discuss why you were interested in these variables and why you were/were not surprised by the relationship you observed.
+    
+```{r}
+cor_hfi_2016 <- cor(hfi_2016 %>% select(-year, -ISO_code, -countries, -region)) 
+cor_hfi_2016 <- cor_hfi_2016[apply(cor_hfi_2016, 2, function(x){!(sum(is.na(x)) == nrow(cor_hfi_2016)-1)}), apply(cor_hfi_2016, 2, function(x){!(sum(is.na(x)) == nrow(cor_hfi_2016)-1)})]
+apply(cor_hfi_2016, 2, function(x){sum(x > 0.7)-1 != 0})
+cor_hfi_2016 <- cor_hfi_2016[apply(cor_hfi_2016, 2, function(x){sum(x > 0.9 | x < -0.9)-1 != 0}),apply(cor_hfi_2016, 2, function(x){sum(x > 0.9 | x < -0.9)-1 != 0})]
+
+corrplot(cor_hfi_2016)
+
+```
+
+
+7. Use the hfi dataset from the `openintro` package
+
+```{r}
+
+data("hfi")
+```
+
+8. == 1. Fit a new model that uses  `pf_expression_control` to predict `hf_score`, or the total human freedom score.
+
+```{r}
+tidy(m1)
+glance(m1)
+ggplot(data = hfi_2016, aes(x = pf_expression_control, y = hf_score)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE)
+m1_aug <- augment(m1)
+ggplot(data = m1_aug, aes(x = .fitted, y = .resid)) +
+  geom_point() +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
+  xlab("Fitted values") +
+  ylab("Residuals")
+
+ggplot(data = m1_aug, aes(x = .resid)) +
+  geom_histogram(binwidth = 0.25) +
+  xlab("Residuals")
+
+ggplot(data = m1_aug, aes(x = .fitted, y = .std.resid)) +
+  geom_point() +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
+  xlab("Fitted values") +
+  ylab("SD Residuals")
+```
+
+9. Again add region to the model from Q4. Compare the slope and $R^2$ with the model from Q4.
+
+__Q4 model:__
+
+```{r}
+
+```
+
+10. Finally fit a model with `ef_money` and `pf_expression_control` as exposures and `hf_score` as outcome.  Compare the slope and $R^2$ from the models from Q1. Could `ef_money` be a confounder? 
+
+```{r}
+hfi_2016 %>%
+  summarise(cor(pf_expression_control, hf_score))
+hfi_2016 %>%
+  summarise(cor(ef_money, hf_score))
+hfi_2016 %>%
+  summarise(cor(pf_expression_control, ef_money))
+
+m3 <- lm(hf_score ~ pf_expression_control + ef_money, data = hfi_2016)
+tidy(m3)
+glance(m3)
+ggplot(data = hfi_2016, aes(x = pf_expression_control, y = hf_score)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE)
+m3_aug <- augment(m3)
+ggplot(data = m3_aug, aes(x = .fitted, y = .resid)) +
+  geom_point() +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
+  xlab("Fitted values") +
+  ylab("Residuals")
+
+ggplot(data = m3_aug, aes(x = .resid)) +
+  geom_histogram(binwidth = 0.25) +
+  xlab("Residuals")
+
+ggplot(data = m3_aug, aes(x = .fitted, y = .std.resid)) +
+  geom_point() +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
+  xlab("Fitted values") +
+  ylab("SD Residuals")
+```
+
+
+11. Use a linear regression model (and scatter plot) with  `ef_money` as exposure and `pf_expression_control` as outcome, to study whether `ef_money` has an association with `pf_expression_control` as well. This might validate our finding that `ef_money` is a confounder between  `pf_expression_control` as exposure and 
+`hf_score` as outcome from Q6.
+
+
+
+```{r}
+
+hfi_2016 %>% summarise(cor(pf_expression_control, ef_money))
+
+m4 <- lm( pf_expression_control ~ ef_money, data = hfi_2016)
+tidy(m4)
+glance(m4)
+ggplot(data = hfi_2016, aes(x = pf_expression_control, y = hf_score)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE)
+m4_aug <- augment(m4)
+ggplot(data = m4_aug, aes(x = .fitted, y = .resid)) +
+  geom_point() +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
+  xlab("Fitted values") +
+  ylab("Residuals")
+
+ggplot(data = m4_aug, aes(x = .resid)) +
+  geom_histogram(binwidth = 0.25) +
+  xlab("Residuals")
+
+ggplot(data = m4_aug, aes(x = .fitted, y = .std.resid)) +
+  geom_point() +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
+  xlab("Fitted values") +
+  ylab("SD Residuals")
+```
+
+
+
+
+
+
+```{r, echo = FALSE, out.width = "70%", eval=TRUE}
+knitr::include_graphics("https://github.com/allisonhorst/stats-illustrations/blob/master/rstats-artwork/code_hero.jpg?raw=true", dpi = 100)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
