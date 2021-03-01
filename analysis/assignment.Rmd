@@ -1,8 +1,10 @@
 ---
 title: "assignment"
-author: "Leonie Thomas"
-date: "23th of Feburary"
-output: html_document
+output:
+  workflowr::wflow_html:
+    toc: false
+editor_options:
+  chunk_output_type: console
 ---
 
 ```{r setup, include=FALSE}
